@@ -1,39 +1,76 @@
-Parking Lot System Overview
-The Parking Lot System is designed to manage vehicle parking spaces efficiently, handling different vehicle types and their space requirements. The system also calculates parking fees based on hourly rates and ensures that vehicles are parked and removed from spaces correctly.
+# Parking Lot System
 
-Key Features:
-Vehicle Types:
-Different types of vehicles like Car, Sports Car, Truck, Bus, and Bike are supported. Each vehicle type has a defined number of spaces required (e.g., Trucks require 2 spaces, Cars require 1 space).
-Vehicle Class:
-The Vehicle class holds information about a vehicle’s registration number, type, color, entry time, and a unique token for identification.
-Parking Spaces:
-VehicleSpace represents an individual parking spot. Each space can either be available or occupied by a vehicle. The system can track which space is occupied and which is free.
-Floors:
-The parking lot consists of multiple floors, with each floor containing several parking spaces. Each floor can accommodate different vehicle types based on the available spaces.
-Cost Calculation:
-HourlyCostStrategy calculates the parking fee based on the type of vehicle and the time spent in the parking lot. The cost is calculated per hour and varies based on the vehicle type (e.g., Bikes are cheaper than Trucks).
-Parking Operations:
-Vehicles can be parked if there is sufficient space. The system checks for availability on each floor and assigns a parking space.
-Vehicles can be removed, and the system calculates the total parking fee based on the duration of the stay.
+The Parking Lot System is designed to efficiently manage vehicle parking spaces and their associated costs. The system supports various vehicle types and handles the management of parking spaces, including cost calculations based on hourly rates and ensuring that vehicles are parked and removed correctly.
 
+## Features
 
-Error Handling:
-If there are no available spaces or a vehicle is already parked, a ParkingException is thrown.
+### 1. **Vehicle Types**
+   - The system supports different types of vehicles, including:
+     - **Car**
+     - **Sports Car**
+     - **Truck** (requires 2 spaces)
+     - **Bus**
+     - **Bike**
+   - Each vehicle type has specific space requirements, such as a truck requiring 2 parking spaces.
 
+### 2. **Vehicle Class**
+   - The `Vehicle` class holds details about a vehicle:
+     - Registration number
+     - Type (Car, Truck, etc.)
+     - Color
+     - Entry time
+     - Unique token for identification
 
-Status Display:
-The system provides a function to display the current parking lot status, including the availability of spaces on each floor.
+### 3. **Parking Spaces**
+   - The `VehicleSpace` class represents individual parking spots.
+   - Each parking space can be either:
+     - Available
+     - Occupied by a vehicle
+   - The system tracks which spaces are occupied and which are free.
 
+### 4. **Floors**
+   - The parking lot is divided into multiple floors.
+   - Each floor contains several parking spaces and may accommodate different vehicle types based on available spaces.
 
-How it Works:
-When a vehicle arrives, it is assigned to the first available space that can accommodate its type.
-The vehicle’s entry is logged, and a unique token is generated.
-The system tracks the vehicle's stay and calculates the cost when it leaves based on the time spent in the parking lot.
-The parking space is vacated once the vehicle leaves.
+### 5. **Cost Calculation**
+   - The `HourlyCostStrategy` class calculates the parking fee based on the type of vehicle and the time spent in the parking lot.
+   - Costs vary based on the vehicle type (e.g., Bikes are cheaper than Trucks).
 
+### 6. **Parking Operations**
+   - Vehicles can be parked if there are available spaces.
+   - The system checks for availability on each floor and assigns a parking space accordingly.
+   - Vehicles can be removed, and the system calculates the total parking fee based on the duration of stay.
 
-Core Classes:
-Vehicle: Represents the vehicle's details.
-VehicleSpace: Represents a parking space.
-Floor: Represents a floor in the parking lot, containing several spaces.
-ParkingLot: Manages the overall parking system, including vehicle parking, space availability, and cost calculation.
+### 7. **Error Handling**
+   - If no spaces are available, or if a vehicle is already parked, a `ParkingException` is thrown.
+
+### 8. **Status Display**
+   - The system provides a function to display the current parking lot status, including the availability of spaces on each floor.
+
+## How It Works
+
+1. **Arrival of a Vehicle:**
+   - When a vehicle arrives, the system checks for the first available space that can accommodate its type.
+   - The vehicle’s entry details are logged, and a unique token is generated for identification.
+
+2. **Tracking Vehicle Stay:**
+   - The system tracks the vehicle's stay and calculates the parking fee based on the time spent in the parking lot.
+
+3. **Leaving the Parking Lot:**
+   - When the vehicle leaves, the system vacates the parking space.
+   - The total parking fee is calculated and displayed based on the duration of stay.
+
+## Core Classes
+
+- **Vehicle**: Represents the details of the vehicle (e.g., registration number, type, color, entry time, token).
+- **VehicleSpace**: Represents a single parking space and its availability status.
+- **Floor**: Represents a floor in the parking lot, containing multiple parking spaces.
+- **ParkingLot**: Manages the overall parking system, including vehicle parking, space availability, and cost calculations.
+
+## Installation
+
+To use the Parking Lot System, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
